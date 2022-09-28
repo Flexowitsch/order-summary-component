@@ -1,0 +1,397 @@
+/* General */
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Red Hat Display', sans-serif;
+    background-image: url('./images/pattern-background-desktop.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-y: -4rem;
+    background-color: var(--grey);
+}
+
+@media only screen and (max-width: 375px) {
+
+    body {
+        background-image: url('./images/pattern-background-mobile.svg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position-y: top;
+    }
+
+}
+
+
+/* Tokens */
+
+/* The Tokens are defined in order to create maintainablility and
+exchangability within the project. Isolating values is beneficicial since
+they can be used in a variety of classes etc. */
+
+:root {
+
+    /* Colors */
+
+    --dark-navy: hsla(223, 47%, 23%, 1);
+    --blue-grey: hsla(224, 23%, 55%, 1);
+    --grey: hsla(225, 78%, 93%, 1);
+    --light-grey: hsla(225, 100%, 98%, 1);
+    --blue: hsla(245, 75%, 52%, 1);
+    --white: hsla(0, 0%, 100%, 1);
+    --purple-functional-hover: hsla(245, 83%, 68%, 1);
+    --SH-button: rgba(56, 42, 225, 0.190291);
+    --SH-card: rgba(13, 48, 189, 0.151826);
+
+    /* Font-Sizes */
+
+    --desktop-L: 1.75rem;
+    /*28px*/
+    --desktop-M: 1rem;
+    /* 16px */
+    --desktop-S: 0.9375rem;
+    /*15px*/
+    --desktop-XS: 0.875rem;
+    /*14px*/
+
+    --mobile-L: 1.375rem;
+    /*22px*/
+    --mobile-M: var(--desktop-S);
+    --mobile-S: var(--desktop-XS);
+    --mobile-XS: 0.8125rem;
+    /*13px*/
+
+    /* Font-Weights */
+
+    --extra-bold: 900;
+    --bold: 700;
+    --medium: 500;
+
+    /* Line - Heights */
+
+    --LH-desktop-XL: 2.3125rem;
+    /*37px*/
+    --LH-desktop-L: 1.625rem;
+    /*26px*/
+    --LH-desktop-M: 1.25rem;
+    /*20px*/
+    --LH-desktop-S: 1.1875rem;
+    /*19px*/
+
+    --LH-mobile-XL: 1.8125rem;
+    /*29px*/
+    --LH-mobile-L: 1.5625rem;
+    /*25px*/
+    --LH-mobile-M: var(--LH-desktop-M);
+    /*20px inherited from the Desktop variable with the same value*/
+    --LH-mobile-S: 1.0625rem;
+    /*17px*/
+
+    /* Spacings */
+
+    --SP-XL: 3rem;
+    /*48px*/
+    --SP-L: 2rem;
+    /*32px*/
+    --SP-M: 1.5rem;
+    /*24px*/
+    --SP-S: 1.25rem;
+    /*20px*/
+    --SP-XS: 1rem;
+    /*16px*/
+
+    /* Border Radius */
+
+    --radius-card: 1.25rem;
+    /* 20px*/
+    --radius-interface: 0.6875rem;
+    /*11px*/
+    --radius-round: 50%;
+
+    /* Shadows */
+    --SH-card: 0px 40px 40px -20px rgba(13, 48, 189, 0.151826);
+    --SH-button: 0rem 1.25rem 1.25rem rgba(56, 42, 225, 0.190291);
+    --SH-button-hover: 0rem 1.25rem 1.25rem rgba(56, 42, 225, 0.190291);
+
+    /* layout */
+
+    --center: center;
+    --left: left-aligned;
+
+
+}
+
+/* Utilities */
+
+.flex {
+    display: flex;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+
+
+/* Typography */
+
+/* All elements are described in order of appearance */
+
+.order-sum-card h1,
+h2,
+p,
+span,
+button,
+a {
+    text-align: var(--center);
+    margin: 0;
+}
+
+.order-sum-card h1 {
+    font-size: var(--desktop-L);
+    font-weight: var(--extra-bold);
+    line-height: var(--LH-desktop-XL);
+    color: var(--dark-navy);
+    margin-bottom: var(--SP-XS);
+}
+
+@media only screen and (max-width: 375px) {
+
+    .order-sum-card h1 {
+        font-size: var(--mobile-L);
+        line-height: var(--LH-mobile-XL);
+    }
+}
+
+.order-sum-card h2 {
+    font-size: var(--desktop-M);
+    font-weight: var(--medium);
+    line-height: var(--LH-desktop-L);
+    color: var(--blue-grey);
+    margin-bottom: var(--SP-S);
+}
+
+@media only screen and (max-width: 375px) {
+
+    .order-sum-card h2 {
+        font-size: var(--mobile-M);
+        line-height: var(--LH-mobile-L);
+        margin-bottom: var(--SP-M);
+    }
+
+}
+
+.order-sum-card .denomination {
+    font-size: var(--desktop-M);
+    font-weight: var(--extra-bold);
+    line-height: var(--LH-desktop-M);
+    text-align: var(--left);
+    color: var(--dark-navy);
+}
+
+@media only screen and (max-width: 375px) {
+    .order-sum-card .denomination {
+        font-size: var(--mobile-S);
+        line-height: var(--LH-mobile-M);
+    }
+}
+
+
+.order-sum-card .cost {
+    font-size: var(--desktop-M);
+    font-weight: var(--medium);
+    line-height: var(--LH-desktop-M);
+    text-align: var(--left);
+    color: var(--blue-grey);
+}
+
+@media only screen and (max-width: 375px) {
+
+    .order-sum-card .cost {
+        font-size: var(--mobile-S);
+        line-height: var(--LH-mobile-M);
+    }
+
+}
+
+.order-sum-card span {
+    font-size: var(--desktop-XS);
+    font-weight: var(--bold);
+    line-height: var(--LH-desktop-S);
+    color: var(--blue);
+    text-transform: capitalize;
+    text-decoration: underline;
+}
+
+.order-sum-card span:hover {
+    color: var(--purple-functional-hover);
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 375px) {
+
+    .order-sum-card span {
+        font-size: var(--mobile-XS);
+        line-height: var(--LH-mobile-S);
+    }
+}
+
+.order-sum-card button {
+    font-size: var(--desktop-S);
+    font-weight: var(--extra-bold);
+    line-height: var(--LH-desktop-M);
+    color: var(--white);
+
+}
+
+@media only screen and (max-width: 375px) {
+
+    .order-sum-card button {
+        font-size: var(--mobile-M);
+        line-height: var(--LH-mobile-M);
+    }
+}
+
+
+.order-sum-card a {
+
+    font-size: var(--desktop-S);
+    font-weight: var(--extra-bold);
+    line-height: var(--LH-desktop-M);
+    color: var(--blue-grey);
+    text-decoration: none;
+}
+
+.order-sum-card a:hover {
+    color: var(--dark-navy);
+}
+
+
+@media only screen and (max-width: 375px) {
+
+    .order-sum-card a {
+        font-size: var(--mobile-M);
+        line-height: var(--LH-mobile-M);
+    }
+
+}
+
+/* Layout */
+
+/* Basic Card Styles */
+
+.order-sum-card {
+    width: 31.249%;
+    max-width: 35%;
+    height: auto;
+    background-color: var(--white);
+    border-radius: var(--radius-card);
+    box-shadow: var(--SH-card);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 375px) {
+    .order-sum-card {
+        width: 95%;
+        max-width: 98%;
+    }
+}
+
+.order-sum-card-body {
+    padding: var(--SP-XL);
+}
+
+@media only screen and (max-width: 375px) {
+
+    .order-sum-card-body {
+        padding: var(--SP-L);
+    }
+}
+
+
+/* Image Container */
+
+.order-sum-card .picture-container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
+}
+
+.picture-container img {
+    width: 100%;
+    height: auto;
+}
+
+/* Product Selection */
+
+.order-sum-card .selection {
+    height: auto;
+    background-color: var(--light-grey);
+    padding: var(--SP-M);
+    border-radius: var(--radius-interface);
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--SP-L);
+}
+
+@media only screen and (max-width: 375px) {
+
+    .order-sum-card .selection {
+        margin-bottom: var(--SP-M);
+    }
+
+}
+
+.order-sum-card .icon {
+    width: var(--SP-XL);
+    height: var(--SP-XL);
+    border-radius: var(--radius-round);
+    margin-right: var(--SP-S);
+}
+
+.cell {
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+/* Buttons */
+
+.order-sum-card-buttons {
+    flex-direction: column;
+}
+
+/* Primary Button */
+
+.order-sum-card-buttons button {
+    padding: var(--SP-XS) 0;
+    background-color: var(--blue);
+    border: none;
+    border-radius: var(--radius-interface);
+    box-shadow: var(--SH-button);
+    margin-bottom: var(--SP-L)
+}
+
+@media only screen and (max-width: 375px) {
+
+    .order-sum-card-buttons button {
+        margin-bottom: var(--SP-M);
+    }
+}
+
+.order-sum-card-buttons button:hover {
+    background-color: var(--purple-functional-hover);
+}
+
+
+
+
+@media only screen and (max-width: 375px) {}
